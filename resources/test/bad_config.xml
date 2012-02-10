@@ -1,0 +1,45 @@
+<xmlCaptionServerConfig_BAD>
+	<!-- It looks as though the root node can be renamed to anything and it doesn't cause
+	 any issues. -->
+	 
+	 <!-- Wrong data types will result in parse failure -->
+	 <!-- <defaultFrequencySeconds>f</defaultFrequencySeconds> -->
+	 
+	 <!-- Missing fields will result in parse failure -->
+	 <!-- <defaultFrequencySeconds>f</defaultFrequencySeconds> -->
+	 
+	 
+	 <!--  THIS IS THE ONLY ERROR IN THIS FILE - wrong data type-->
+	 <defaultFrequencySeconds>Foo</defaultFrequencySeconds>
+	 
+	 
+   <defaultCaptionText>Default caption text</defaultCaptionText>
+   <outputDirectory>C:\Temp</outputDirectory>
+   
+ 	<!-- Again, we can't have missing fields -->
+   <cameraConfigs>
+   
+   		<!-- We can have no nodes within cameraConfigs and that's fine... it's just an empty
+   		     list -->
+      <xmlCameraConfig>
+         <host>host</host>
+         <requestUrl>RequestURL</requestUrl>
+         <captionText>Caption Text</captionText>
+         <frequencySeconds>10.0</frequencySeconds>
+      </xmlCameraConfig>
+      
+      <xmlCameraConfig>
+         <host>host</host>
+         <requestUrl>RequestURL</requestUrl>
+         <captionText>Caption Text</captionText>
+         <frequencySeconds>10.0</frequencySeconds>
+      </xmlCameraConfig>
+      
+      <xmlCameraConfig>
+         <host>host</host>
+         <requestUrl>RequestURL</requestUrl>
+         <captionText>Caption Text</captionText>
+         <frequencySeconds>10.0</frequencySeconds>
+      </xmlCameraConfig>
+   </cameraConfigs>
+</xmlCaptionServerConfig_BAD>
