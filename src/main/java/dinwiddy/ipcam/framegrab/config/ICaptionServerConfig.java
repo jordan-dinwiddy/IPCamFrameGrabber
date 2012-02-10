@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ICaptionServerConfig {
 
-	public float getDefaultFrequencySeconds();
+	public double getDefaultFrequencySeconds();
 	
 	public String getDefaultCaptionText();
 	

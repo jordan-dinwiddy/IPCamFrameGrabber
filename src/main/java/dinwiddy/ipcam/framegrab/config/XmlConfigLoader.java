@@ -1,6 +1,7 @@
 package dinwiddy.ipcam.framegrab.config;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import org.simpleframework.xml.core.Persister;
 
@@ -20,7 +21,7 @@ public class XmlConfigLoader implements ConfigLoader {
 		
 		// TODO: Use more informative exception type
 		if(fileUrl == null)
-			throw new Exception(String.format("Unable to open classpath relative location \"%s\"", relativeFileLocation));
+			throw new FileNotFoundException(String.format("Unable to open classpath relative location \"%s\"", relativeFileLocation));
 		
 		File f = new File(fileUrl.getFile());
 		

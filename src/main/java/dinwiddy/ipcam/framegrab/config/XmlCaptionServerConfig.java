@@ -16,7 +16,7 @@ import org.simpleframework.xml.Root;
 public class XmlCaptionServerConfig implements ICaptionServerConfig {
 
 	@Element
-	private float defaultFrequencySeconds;
+	private double defaultFrequencySeconds;
 	
 	@Element
 	private String defaultCaptionText;
@@ -27,10 +27,10 @@ public class XmlCaptionServerConfig implements ICaptionServerConfig {
 	@ElementList(type=XmlCameraConfig.class)
 	private List<ICameraConfig> cameraConfigs;
 	
-	public float getDefaultFrequencySeconds() {
+	public double getDefaultFrequencySeconds() {
 		return defaultFrequencySeconds;
 	}
-	public void setDefaultFrequencySeconds(float defaultFrequencySeconds) {
+	public void setDefaultFrequencySeconds(double defaultFrequencySeconds) {
 		this.defaultFrequencySeconds = defaultFrequencySeconds;
 	}
 	public String getDefaultCaptionText() {

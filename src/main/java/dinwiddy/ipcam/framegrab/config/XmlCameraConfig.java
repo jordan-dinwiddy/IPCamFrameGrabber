@@ -14,6 +14,9 @@ import org.simpleframework.xml.Root;
 public class XmlCameraConfig implements ICameraConfig {
 
 	@Element
+	private String name;
+	
+	@Element
 	private String host;
 	
 	@Element
@@ -23,8 +26,14 @@ public class XmlCameraConfig implements ICameraConfig {
 	private String captionText;
 	
 	@Element
-	private float frequencySeconds;
+	private double frequencySeconds;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getHost() {
 		return host;
 	}
@@ -34,7 +43,7 @@ public class XmlCameraConfig implements ICameraConfig {
 	public String getCaptionText() {
 		return captionText;
 	}
-	public float getFrequencySeconds() {
+	public double getFrequencySeconds() {
 		return frequencySeconds;
 	}
 
@@ -47,7 +56,7 @@ public class XmlCameraConfig implements ICameraConfig {
 	public void setCaptionText(String captionText) {
 		this.captionText = captionText;
 	}
-	public void setFrequencySeconds(float frequencySeconds) {
+	public void setFrequencySeconds(double frequencySeconds) {
 		this.frequencySeconds = frequencySeconds;
 	}
 }
