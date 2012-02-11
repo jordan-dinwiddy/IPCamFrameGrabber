@@ -16,6 +16,7 @@ public class XmlConfigLoaderTest {
 	private static final String TEST_CONFIG_FILE_GOOD 		= "test/good_config.xml";
 	private static final String TEST_CONFIG_FILE_BAD 		= "test/bad_config.xml";
 	private static final String TEST_CONFIG_FILE_NOT_FOUND 	= "test/foobar.xml";
+	private static final String TEST_CONFIG_FILE_NO_CAMS 	= "test/nocams_config.xml";
 	
 	/**
 	 * Tests that a correctly formed XML config file parses okay. 
@@ -53,7 +54,7 @@ public class XmlConfigLoaderTest {
 	}
 	
 	/**
-	 * Tests a FileNotFoundException is thrown when a non-existent file is specified. 
+	 * Tests a ConfigException is thrown when a non-existent file is specified. 
 	 * @throws Exception
 	 */
 	@Test(expected=FileNotFoundException.class)

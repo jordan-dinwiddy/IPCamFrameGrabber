@@ -1,0 +1,30 @@
+<xmlCaptionServerConfig>
+   <defaultFrequencySeconds>30.2</defaultFrequencySeconds>
+   <defaultCaptionText>Default caption text</defaultCaptionText>
+   <outputDirectory>C:\Temp</outputDirectory>
+   <cameraConfigs>
+      <xmlCameraConfig>
+         <name>Cam1</name>
+         <host>host1</host>
+         <requestUrl>RequestURL1</requestUrl>
+         <captionText>Caption Text1</captionText>
+         <frequencySeconds>10</frequencySeconds>
+      </xmlCameraConfig>
+      
+      <xmlCameraConfig>
+         <name>Cam2</name>
+         <host>host2</host>
+         <requestUrl>RequestURL2</requestUrl>
+         <captionText>Caption Text2</captionText>
+         <frequencySeconds>10</frequencySeconds>
+      </xmlCameraConfig>
+      
+      <xmlCameraConfig>
+         <name>Cam3</name>
+         <host>host3</host>
+         <requestUrl>RequestURL3</requestUrl>
+         <captionText>Caption Text3</captionText>
+         <frequencySeconds>30</frequencySeconds>
+      </xmlCameraConfig>
+   </cameraConfigs>
+</xmlCaptionServerConfig>

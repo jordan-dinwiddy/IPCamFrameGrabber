@@ -1,0 +1,8 @@
+<xmlCaptionServerConfig>
+   <defaultFrequencySeconds>30.2</defaultFrequencySeconds>
+   <defaultCaptionText>Default caption text</defaultCaptionText>
+   <outputDirectory>C:\Temp</outputDirectory>
+   <cameraConfigs>
+		<!-- No cams are configured -->
+   </cameraConfigs>
+</xmlCaptionServerConfig>
