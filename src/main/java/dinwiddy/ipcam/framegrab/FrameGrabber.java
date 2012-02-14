@@ -8,7 +8,7 @@ import dinwiddy.ipcam.framegrab.config.ICameraConfig;
 public class FrameGrabber {
 
 	private ICameraConfig config;
-	private long lastCaptureTime = 0;
+	private long nextCaptureTime = System.currentTimeMillis();
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy @ HH:mm:ss.S z");
 	
 	public FrameGrabber(ICameraConfig config)
@@ -23,11 +23,12 @@ public class FrameGrabber {
 	}
 
 	public boolean readyToCapture() {
-		return ((System.currentTimeMillis()) - lastCaptureTime) > config.getFrequencySeconds()*1000;
+		return (System.currentTimeMillis() >= nextCaptureTime);
 	}
 
 	public void captureAndSave() {
 		System.out.printf("%s: %s: snap!\n", sdf.format(new Date()), config.getName());
-		lastCaptureTime = System.currentTimeMillis();
+		
+		nextCaptureTime += config.getFrequencySeconds()*1000;
 	}
 }
