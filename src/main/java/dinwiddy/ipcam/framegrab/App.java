@@ -8,25 +8,23 @@ import java.util.List;
 import dinwiddy.ipcam.framegrab.config.Config;
 import dinwiddy.ipcam.framegrab.config.ConfigException;
 import dinwiddy.ipcam.framegrab.config.ConfigLoader;
-import dinwiddy.ipcam.framegrab.config.FrameGrabber;
 import dinwiddy.ipcam.framegrab.config.ICameraConfig;
-import dinwiddy.ipcam.framegrab.config.ICaptionServerConfig;
 import dinwiddy.ipcam.framegrab.config.XmlConfigLoader;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
 	private static final String CONFIG_XML_LOCATION = "config.xml";
+	private static final long FRAME_LOOP_SLEEP = 1;
+	
 	private List<FrameGrabber> frameGrabbers;
 	
-	
 	public App() {
-		
 	}
 	
+	/**
+	 * Kicks everything off. Loads the config, initialises the application and then loops over 
+	 * all cameras, grabbing and saving frames. 
+	 */
 	public void run()
 	{
 		try
@@ -35,8 +33,7 @@ public class App
 			
 			initialiseFrameGrabbers();
 		
-			// Loop over frame grabbers and capture frames. 
-			enterFrameGrabLoop();
+			enterGrabbing();
 		}
 		catch(ConfigException ce)
 		{
@@ -50,7 +47,12 @@ public class App
 		}
 	}
 
-	private void enterFrameGrabLoop() 
+	/**
+	 * Enter a continuous loop that iterates over each of our frame grabber objects and 
+	 * retrieves and saves a frame if the grabber is ready (i.e if the necessary amount of time
+	 * has elapsed).
+	 */
+	private void enterGrabbing() 
     {
 		while(true)
 		{
@@ -62,7 +64,7 @@ public class App
 			
 			try 
 			{
-				Thread.sleep(10);
+				Thread.sleep(FRAME_LOOP_SLEEP);
 			} 
 			catch (InterruptedException e) { }
 		}
@@ -75,7 +77,9 @@ public class App
 	{
 		frameGrabbers = new ArrayList<FrameGrabber>();
 		
-		for(ICameraConfig camConfig : Config.getConfig().getCameraConfigs())
+		List<ICameraConfig> configs = Config.getConfig().getCameraConfigs();
+		
+		for(ICameraConfig camConfig : configs)
 		{
 			System.out.printf("Initing FrameGrabber for cam \"%s\"...\n", camConfig.getName());
 			frameGrabbers.add(new FrameGrabber(camConfig));
@@ -93,7 +97,7 @@ public class App
 		// Attempts to load the config from file or whatever source is used by underlying 
 		// ConfigLoader. Throws exception if it fails. 
 		ConfigLoader cl = new XmlConfigLoader(CONFIG_XML_LOCATION);
-		Config.initialise(cl);
+		Config.setLoader(cl);
 		
 		try
 		{
@@ -109,9 +113,13 @@ public class App
 		}
 	}
 
-	public static void main( String[] args ) throws Exception
+	/**
+	 * Entry point. 
+	 * @param args
+	 * @throws Exception
+	 */
+	public static void main( String[] args )
     {
     	new App().run();
-
     }
 }

@@ -1,7 +1,9 @@
-package dinwiddy.ipcam.framegrab.config;
+package dinwiddy.ipcam.framegrab;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import dinwiddy.ipcam.framegrab.config.ICameraConfig;
 
 public class FrameGrabber {
 

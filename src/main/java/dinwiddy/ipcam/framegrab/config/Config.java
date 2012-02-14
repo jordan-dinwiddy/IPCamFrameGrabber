@@ -8,7 +8,7 @@ public class Config
 	private static ConfigLoader configLoader;
 	private static ICaptionServerConfig config;
 	
-	public static void initialise(ConfigLoader cl)
+	public static void setLoader(ConfigLoader cl)
 	{
 		configLoader = cl;
 	}

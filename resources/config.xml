@@ -26,5 +26,13 @@
          <captionText>Caption Text3</captionText>
          <frequencySeconds>30</frequencySeconds>
       </xmlCameraConfig>
+      
+      <xmlCameraConfig>
+         <name>Cam4</name>
+         <host>host4</host>
+         <requestUrl>RequestURL3</requestUrl>
+         <captionText>Caption Text3</captionText>
+         <frequencySeconds>1</frequencySeconds>
+      </xmlCameraConfig>
    </cameraConfigs>
 </xmlCaptionServerConfig>
